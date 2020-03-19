@@ -38,7 +38,6 @@ const quotes=[
 function getRandomQuote(){
   const randomNum=Math.ceil(Math.random()*5)-1;
   const quote=quotes[randomNum];
-  console.log(quote);
   return quote;
 }
 //test
@@ -64,11 +63,10 @@ function printQuote(){
   }
   //closing tag for paragraph //works without closing tag
   htmlString+=`</p>`
-  console.log(htmlString);
-  return(htmlString);
+  document.getElementById('quote-box').innerHTML = htmlString;
 }
 
-document.getElementById('quote-box').innerHTML = printQuote();
+
 
 
 /***
