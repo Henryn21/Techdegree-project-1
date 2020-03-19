@@ -8,7 +8,6 @@ project 1 - A Random Quote Generator
   // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
 
 /*** 
- * `quotes` array 
  * an array of objects with two strings each, quote and source
 ***/
 const quotes=[
@@ -30,43 +29,46 @@ const quotes=[
     source:"Theodore Roosevelt",
   }
 ]
-//test
-//console.log(quotes);
+
 
 
 /***
- * `getRandomQuote` function
+ * generates a random number 0-4, uses that number to pick quote object from array
 ***/
 function getRandomQuote(){
-  //generate random number 0-4
   const randomNum=Math.ceil(Math.random()*5)-1;
-  //variable for quote object from array
   const quote=quotes[randomNum];
+  console.log(quote);
   return quote;
 }
 //test
 //console.log(getRandomQuote());
 
 /***
- * `printQuote` function
+ * stores a quote from the array of quotes,
+ * puts the quote in a string with html tags
+ * if citation exists, concatenate the citation into htmlString
+ * if year exists, concatenate the year into htmlString
+ * adds closing </p> tags to string
+ * returns htmlString
 ***/
 function printQuote(){
   const quoteObject=getRandomQuote();
-  //a string with p tags
-  const htmlString=`<p class="quote">${quoteObject.quote}
+  let htmlString=`<p class="quote">${quoteObject.quote}</p>
   <p class="source">${quoteObject.source}`;
-  //if citation exists
   if(quoteObject.citation!=null){
-    htmlString+=`<span>${quoteObject.citation}</span>`;
+    htmlString+=`<span>, ${quoteObject.citation}</span>`;
   }
-  //if year exists
   if(quoteObject.year!=null){
-    htmlString+=`<span>${quoteObject.year}</span>`;
+    htmlString+=`<span> ${quoteObject.year}</span>`;
   }
+  //closing tag for paragraph //works without closing tag
+  htmlString+=`</p>`
   console.log(htmlString);
+  return(htmlString);
 }
 
-
+document.getElementById('quote-box').innerHTML = printQuote();
 
 
 /***
