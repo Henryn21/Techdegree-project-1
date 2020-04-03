@@ -3,13 +3,6 @@ Treehouse FSJS Techdegree:
 project 1 - A Random Quote Generator
 ******************************************/
 
-// For assistance: 
-  // Check the "Project Resources" section of the project instructions
-  // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
-
-/*** 
- * an array of objects with two strings each, quote and source
-***/
 const quotes=[
   { quote:"There is a Destiny which has the control of our actions, not to be resisted by the strongest efforts of Human Nature.",
     source:"George Washington",
@@ -40,8 +33,6 @@ function getRandomQuote(){
   const quote=quotes[randomNum];
   return quote;
 }
-//test
-//console.log(getRandomQuote());
 
 /***
  * stores a quote from the array of quotes,
@@ -49,7 +40,7 @@ function getRandomQuote(){
  * if citation exists, concatenate the citation into htmlString
  * if year exists, concatenate the year into htmlString
  * adds closing </p> tags to string
- * returns htmlString
+ * writes htmlString to the html doc
 ***/
 function printQuote(){
   const quoteObject=getRandomQuote();
@@ -71,7 +62,6 @@ function printQuote(){
 
 /***
  * click event listener for the print quote button
- * DO NOT CHANGE THE CODE BELOW!!
 ***/
 
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
